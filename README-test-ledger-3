@@ -1,0 +1,22 @@
+
+jsiegel@rd-sparel3 ~/repos/solana]((v1.13.6)) ./target/debug/solana-test-validator --no-accounts-db-caching --reset           
+Ledger location: test-ledger
+Log: test-ledger/validator.log
+⠁ Initializing...
+⠒ Initializing...
+Identity: 8bDEKyobZ9uowCUyauNjyG3mpg5FrNP6ZWPhfAc8v5EN
+Genesis Hash: Ha5DVgnD1xSA8oQc337jtA3atEfQ4TFX1ajeZG1Y2tUx
+Version: 1.13.6
+Shred Version: 27537
+Gossip Address: 127.0.0.1:1024
+TPU Address: 127.0.0.1:1027
+JSON RPC URL: http://127.0.0.1:8899
+⠐ 00:02:10 | Processed Slot: 247 | Confirmed Slot: 247 | Finalized Slot: 215 | Full Snapshot Slot: 200 | Incremental Snapshot Slot: - | Transactions: 247 | ◎499.998772500
+^C
+
+jsiegel@rd-sparel3 ~/repos/solana]((v1.13.6)) solana transaction-count; solana transfer EPhgPANa5Rh2wa4V2jxt7YbtWa3Uyw4sTeZ13cQjDDB8 1 --allow-unfunded-recipient; solana transaction-count             
+135
+
+Signature: 5RPRQs7FVaZn6Tr9XjKqpbanNm8EvETYp23Lv7L1AUceXP9fqr8M9MrZfUgFPZBE9kDd8AQZ1QnT38uxewQXWhf2
+
+138
