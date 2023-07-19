@@ -1,15 +1,4 @@
+*.gz filter=lfs diff=lfs merge=lfs -text
+*.tar* filter=lfs diff=lfs merge=lfs -text
 v14-mainnet.json filter=lfs diff=lfs merge=lfs -text
 v14-tests.json filter=lfs diff=lfs merge=lfs -text
-contract-ledger.tar.gz filter=lfs diff=lfs merge=lfs -text
-test-ledger.tar.gz filter=lfs diff=lfs merge=lfs -text
-failing-test-ledger.tar.gz filter=lfs diff=lfs merge=lfs -text
-multi_node_ledger-trimmed.tar.gz filter=lfs diff=lfs merge=lfs -text
-nonce-ledger.tar.gz filter=lfs diff=lfs merge=lfs -text
-test-ledger-2.tar.gz filter=lfs diff=lfs merge=lfs -text
-test-ledger-3.tar.gz filter=lfs diff=lfs merge=lfs -text
-test-ledger-4.tar.gz filter=lfs diff=lfs merge=lfs -text
-v13-contract-ledger.tar.gz filter=lfs diff=lfs merge=lfs -text
-v14-test-ledger.tar.gz filter=lfs diff=lfs merge=lfs -text
-v13-contracts.log.gz filter=lfs diff=lfs merge=lfs -text
-179248369.log.gz filter=lfs diff=lfs merge=lfs -text
-*.tar* filter=lfs diff=lfs merge=lfs -text
