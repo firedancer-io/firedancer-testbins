@@ -15,3 +15,4 @@ solana-stake-program.json filter=lfs diff=lfs merge=lfs -text
 solana-stake-program-mainnet.json filter=lfs diff=lfs merge=lfs -text
 solana-vote-program.json filter=lfs diff=lfs merge=lfs -text
 solana-vote-program-mainnet.json filter=lfs diff=lfs merge=lfs -text
+tps.tar.gz filter=lfs diff=lfs merge=lfs -text
