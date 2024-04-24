@@ -1,3 +1,0 @@
-test_native_programs_046.h filter=lfs diff=lfs merge=lfs -text
-test_native_programs_2421.h filter=lfs diff=lfs merge=lfs -text
-test_native_programs_2791.h filter=lfs diff=lfs merge=lfs -text
