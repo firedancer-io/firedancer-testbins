@@ -229,11 +229,21 @@ int fd_executor_run_test(
 
   /* Create a new slot_ctx context to execute this test in */
 
-  uchar * epoch_ctx_mem = fd_wksp_alloc_laddr( suite->wksp, FD_EXEC_EPOCH_CTX_ALIGN, FD_EXEC_EPOCH_CTX_FOOTPRINT, FD_EXEC_EPOCH_CTX_MAGIC );;
-  fd_exec_epoch_ctx_t * epoch_ctx = fd_exec_epoch_ctx_join( fd_exec_epoch_ctx_new( epoch_ctx_mem ) );
+  static uchar * epoch_ctx_mem;
+  static fd_exec_epoch_ctx_t * epoch_ctx;
+  FD_ONCE_BEGIN {
+    epoch_ctx_mem = fd_wksp_alloc_laddr( suite->wksp, FD_EXEC_EPOCH_CTX_ALIGN, FD_EXEC_EPOCH_CTX_FOOTPRINT, 1 );
+    epoch_ctx = fd_exec_epoch_ctx_join( fd_exec_epoch_ctx_new( epoch_ctx_mem ) );
+  }
+  FD_ONCE_END;
 
-  uchar * slot_ctx_mem = (uchar *)fd_alloca_check( FD_EXEC_SLOT_CTX_ALIGN, FD_EXEC_SLOT_CTX_FOOTPRINT );
-  fd_exec_slot_ctx_t * slot_ctx = fd_exec_slot_ctx_join( fd_exec_slot_ctx_new( slot_ctx_mem, suite->valloc ) );
+  static uchar * slot_ctx_mem;
+  static fd_exec_slot_ctx_t * slot_ctx;
+  FD_ONCE_BEGIN {
+    slot_ctx_mem = fd_wksp_alloc_laddr( suite->wksp, FD_EXEC_SLOT_CTX_ALIGN, FD_EXEC_SLOT_CTX_FOOTPRINT, 1 );
+    slot_ctx = fd_exec_slot_ctx_join( fd_exec_slot_ctx_new( slot_ctx_mem, suite->valloc ) );
+  }
+  FD_ONCE_END;
   slot_ctx->epoch_ctx = epoch_ctx;
 
   if ( FD_UNLIKELY( NULL == slot_ctx ) )
@@ -594,7 +604,6 @@ fd_executor_run_cleanup:
   fd_funk_end_write( slot_ctx->acc_mgr->funk );
   fd_bincode_destroy_ctx_t destroy_ctx = { .valloc = slot_ctx->valloc };
   fd_slot_bank_destroy(&slot_ctx->slot_bank, &destroy_ctx);
-  fd_wksp_free_laddr( epoch_ctx_mem );
   return ret;
 }
 
