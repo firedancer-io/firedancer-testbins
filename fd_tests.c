@@ -99,7 +99,7 @@ fd_funk_txn_xid_set_unique( fd_funk_txn_xid_t * xid ) {
 void fd_executor_test_suite_new( fd_executor_test_suite_t* suite ) {
   memset(suite, 0, sizeof(*suite));
 
-  suite->wksp = fd_wksp_new_anonymous( FD_SHMEM_GIGANTIC_PAGE_SZ, 24, 0, "wksp", 0UL );
+  suite->wksp = fd_wksp_new_anonymous( FD_SHMEM_GIGANTIC_PAGE_SZ, 5, 0, "wksp", 0UL );
   if ( FD_UNLIKELY( NULL == suite->wksp ) )
     FD_LOG_ERR(( "failed to create an anonymous local workspace" ));
 
