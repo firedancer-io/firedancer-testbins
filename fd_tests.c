@@ -232,8 +232,9 @@ int fd_executor_run_test(
   static uchar * epoch_ctx_mem;
   static fd_exec_epoch_ctx_t * epoch_ctx;
   FD_ONCE_BEGIN {
-    epoch_ctx_mem = fd_wksp_alloc_laddr( suite->wksp, FD_EXEC_EPOCH_CTX_ALIGN, FD_EXEC_EPOCH_CTX_FOOTPRINT, 1 );
-    epoch_ctx = fd_exec_epoch_ctx_join( fd_exec_epoch_ctx_new( epoch_ctx_mem ) );
+    ulong const vote_acct_max = 32UL;
+    epoch_ctx_mem = fd_wksp_alloc_laddr( suite->wksp, FD_EXEC_EPOCH_CTX_ALIGN, fd_exec_epoch_ctx_footprint( vote_acct_max ), 1 );
+    epoch_ctx = fd_exec_epoch_ctx_join( fd_exec_epoch_ctx_new( epoch_ctx_mem, vote_acct_max ) );
   }
   FD_ONCE_END;
 
